@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     body {
-      background: url('attached_assets/Untitled39_20250523070856.png') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
       background-size: cover;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
@@ -74,9 +74,9 @@
   </div>
 
   <footer class="text-center text-xs text-white bg-black bg-opacity-40 py-4">
-    <p>© 2025 Invitation. Design by Niko & Auliya. All rights reserved.</p>
+    <p>© 2025 Niko & Auliya. Design by keluarga. All rights reserved.</p>
     <p class="mt-2">Contact: <a href="https://wa.me/6281234567890" class="underline text-green-300">WhatsApp Admin</a></p>
-    <p class="mt-2">Musik: <a href="https://soundcloud.com/relaxing-white-noise/rain-in-the-woods-sleep-sound-5-hours" target="_blank" class="underline text-blue-300">Rain</a></p>
+    <p class="mt-2">Musik: <a href="https://www.youtube.com/watch?v=0dcFWLV_OlI" target="_blank" class="underline text-blue-300">Hujan</a></p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -86,9 +86,16 @@
     // Countdown Timer
     const eventDate = new Date("2025-08-01T00:00:00").getTime();
     const countdown = document.getElementById("countdown");
-    setInterval(() => {
+
+    const timerInterval = setInterval(() => {
       const now = new Date().getTime();
       const distance = eventDate - now;
+
+      if (distance < 0) {
+        countdown.innerHTML = "Acara telah dimulai!";
+        clearInterval(timerInterval);
+        return;
+      }
 
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -98,7 +105,7 @@
       countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
 
-    // Scroll to form
+    // Scroll to RSVP Form
     function scrollToForm() {
       document.getElementById("form").scrollIntoView({ behavior: "smooth" });
     }
